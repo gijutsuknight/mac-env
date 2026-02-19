@@ -34,12 +34,14 @@ Use these tasks to prove your environment works and that version switching takes
 
 ## 2. Java / Spring Boot
 
-1. Switch Java version (SDKMAN example):
+1. Switch Java version (macOS example: use `-v 17`, `-v 21`, etc. as needed):
    ```bash
-   sdk use java 17.0.9-tem
+   export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+   export PATH=$JAVA_HOME/bin:$PATH
    java -version
-   javac -v
+   javac -version
    ```
+   Or with SDKMAN: `sdk use java 17.0.9-tem` then run the version commands.
 2. Create a minimal Spring Boot app from [start.spring.io](https://start.spring.io) (e.g. Java 17, Maven, no extra dependencies), download and unzip.
 3. Run the app:
    ```bash

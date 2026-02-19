@@ -56,7 +56,8 @@ Jenkins version: open the Jenkins UI (e.g. http://localhost:8080) and check the 
 ## Version switching
 
 - **Java used by Jenkins:** Jenkins uses the Java that is first on the process `PATH` when it starts. To use a specific JDK:
-  - **Native (Homebrew):** Set `JAVA_HOME` and `PATH` before starting Jenkins (e.g. in launchd env or `~/.zshrc` if you start Jenkins manually). Example: `export JAVA_HOME=/opt/homebrew/opt/openjdk@17` and `export PATH=$JAVA_HOME/bin:$PATH`.
+  - **macOS (java_home):** Set before starting Jenkins (e.g. in launchd env or `~/.zshrc`): `export JAVA_HOME=$(/usr/libexec/java_home -v 17)` and `export PATH=$JAVA_HOME/bin:$PATH`. Use `-v 21`, `-v 25`, etc. as needed.
+  - **Native (Homebrew):** Or set explicitly: `export JAVA_HOME=/opt/homebrew/opt/openjdk@17` and `export PATH=$JAVA_HOME/bin:$PATH`.
   - **Docker:** Use an image that ships the desired JDK, or mount a volume with the correct `JAVA_HOME`/PATH for the container.
 - **Docker:** Switch Docker daemon version by upgrading Docker Desktop or the `docker` package; no per-project “version switch” for Docker itself.
 

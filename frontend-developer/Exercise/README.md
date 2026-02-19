@@ -33,17 +33,29 @@ Use these tasks to prove your environment works and that version switching takes
 
 ## 2. Java version switch and echo
 
-1. If using SDKMAN, list and use two versions:
+1. **macOS (`java_home`):** List JVMs and switch by major version:
+   ```bash
+   /usr/libexec/java_home -V
+   export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+   export PATH=$JAVA_HOME/bin:$PATH
+   java -version
+   javac -version
+   export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+   export PATH=$JAVA_HOME/bin:$PATH
+   java -version
+   javac -version
+   ```
+2. **SDKMAN:** List and use two versions:
    ```bash
    sdk list java
    sdk use java 17.0.9-tem
    java -version
-   javac -v
+   javac -version
    sdk use java 21.0.1-tem
    java -version
-   javac -v
+   javac -version
    ```
-2. If using Homebrew, switch PATH to a different JDK and run `java -version` and `javac -v` to confirm.
+3. **Homebrew only:** Switch PATH to a different JDK and run `java -version` and `javac -version` to confirm.
 
 ---
 
